@@ -1,1 +1,160 @@
 
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Safex - 下载</title>
+  <link rel="icon" href="./app-icon-512.png" type="image/png">
+  <link rel="apple-touch-icon" href="./app-icon-512.png">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", "Helvetica Neue", sans-serif;
+      background-color: #ffffff;
+      color: #0f172a;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px 20px;
+    }
+
+    /* 无边框极简容器 */
+    .card {
+      width: 100%;
+      max-width: 320px;
+      text-align: center;
+    }
+
+    /* 应用图标 */
+    .app-icon {
+      width: 88px;
+      height: 88px;
+      border-radius: 20px;
+      object-fit: cover;
+      margin-bottom: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    /* 应用名称 */
+    .app-name {
+      font-size: 24px;
+      font-weight: 700;
+      color: #0f172a;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    /* 安全提醒标签 */
+    .app-desc {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-size: 13px;
+      color: #16a34a;
+      font-weight: 500;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 28px;
+    }
+
+    .app-desc svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
+
+    /* 下载按钮 */
+    .btn-download {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      height: 50px;
+      background: #2563eb;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 14px;
+      text-decoration: none;
+      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    .btn-download:hover {
+      background: #1d4ed8;
+    }
+
+    .btn-download:active {
+      transform: scale(0.98);
+    }
+
+    .btn-download svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="card">
+    <img id="appIcon" src="./app-icon-512.png" alt="Safex" class="app-icon">
+    <h1 class="app-name" id="appName">Safex</h1>
+    
+    <!-- 安全提醒标签 -->
+    <div class="app-desc" id="appDesc">
+      <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-5.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+      <span>官方安全检测・无毒无广告</span>
+    </div>
+
+    <a id="downloadBtn" class="btn-download" href="https://github.com/dagang23578-eng/200/releases/download/10/godownload.apk">
+      </svg>
+      <span>安卓下载</span>
+    </a>
+  </main>
+
+  <script>
+    const APP_CONFIG = {
+      appName: "Safex",
+      appDesc: "官方安全检测・无毒无广告",
+      appIcon: "./app-icon-512.png",
+      downloadUrl: "./safex.apk",
+      pageTitle: "Safex - 下载"
+    };
+
+    function initPage() {
+      document.title = APP_CONFIG.pageTitle;
+      document.getElementById("appIcon").src = APP_CONFIG.appIcon;
+      document.getElementById("appName").textContent = APP_CONFIG.appName;
+      
+      const appDesc = document.getElementById("appDesc");
+      if (appDesc) {
+        appDesc.querySelector("span").textContent = APP_CONFIG.appDesc;
+      }
+      
+      document.getElementById("downloadBtn").href = APP_CONFIG.downloadUrl;
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initPage);
+    } else {
+      initPage();
+    }
+  </script>
+
+</body>
+</html>
